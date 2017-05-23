@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f426f74aebb4a8bb8739416451b6c41" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="CarFinderSvc.BodyStyle" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.Car" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.DriveType" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.EngineFuel" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.EnginePosition" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.EngineType" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.Make" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarFinderSvc.TransmissionType" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="CarFinderSvc.FK_BodyStyles_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_DriveTypes_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_EngineFuels_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_EnginePositions_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_EngineTypes_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_Makes_id" ManuallyRouted="false" />
+        <AssociationConnector Association="CarFinderSvc.FK_TransmissionTypes_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,214 @@
+/************************************/
+/************* NESTABLE *************/
+/************************************/
+
+.dd {
+  float: none;
+  @include user-select(none);
+  width: auto;
+
+  &.transparent-black {
+    .dd-list {
+      .dd-item {
+
+        button {
+          &:before {
+            color: white!important;
+          }
+        }
+        
+        .dd-handle {
+          border: 0!important;
+          background: $transparent-black-3!important;
+          color: white!important;
+
+          &:hover {
+            background: $transparent-black-4!important;
+          }
+        }
+
+      }
+
+      .dd-placeholder {
+        background: $transparent-black-6!important;
+        border: 0!important;
+      }
+    }
+  }
+
+  &.transparent-white {
+    .dd-list {
+      .dd-item {
+
+        button {
+          &:before {
+            color: white!important;
+          }
+        }
+        
+        .dd-handle {
+          border: 0!important;
+          background: $transparent-white-3!important;
+          color: white!important;
+
+          &:hover {
+            background: $transparent-white-4!important;
+          }
+        }
+
+      }
+
+      .dd-placeholder {
+        background: $transparent-white-6!important;
+        border: 0!important;
+      }
+    }
+  }
+}
+
+.dd-item, 
+.dd-empty, 
+.dd-placeholder {
+  line-height: 18px;
+  @include border-radius(4px);
+
+  &.dd-heading {
+    >.dd3-content {
+      color: $green;
+      background: lighten($green, 50%);
+      border-color: $green;
+    }
+    >.dd3-handle {
+      background: lighten($green, 45%);
+      border-color: $green;
+
+      &:before {
+        color: $green;
+      }
+
+      &:hover {
+        background: lighten($green, 35%);
+
+        &:before {
+          color: darken($green, 10%);
+        }
+      }
+    }
+    > button:before {
+      color: $green;
+    }
+    > button {
+      &:hover {
+        &:before {
+          color: darken($green, 10%);
+        }
+      }
+    }
+  }
+
+  .dd3-content {
+    color: #717171;
+    background: #fcfcfc;
+    @include border-radius(4px);
+    font-weight: normal;
+
+    .controls {
+      display: inline-block;
+      float: right;
+      position: relative;
+
+      a {
+        font-size: 14px;
+        padding: 3px;
+        line-height: 18px; 
+      }
+
+      &.open {
+        a {
+          &.dropdown-toggle {
+            color: #357ebd!important;
+          }
+        }
+
+        .dropdown-menu {
+          padding: 10px;
+
+          >li {
+            position: relative;
+
+            >a {
+              color: #717171!important;
+              padding: 5px 10px;
+
+              &:hover {
+                color: #357ebd!important;
+              }
+            }
+
+            .controls {
+              position: absolute;
+              top: 5px;
+              right: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dd3-handle {
+    background: #f2f2f2;
+    border-color: #ccc;
+
+    &:before {
+      content: "\f0c9";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 14px;
+      color: #717171;
+      top: 7px;
+    }
+
+    &:hover {
+      background: #e2e2e2; 
+
+      &:before {
+        color: #357ebd;
+      }
+    }
+  }
+
+  .dd-handle {
+    @include border-radius(4px);
+  }
+
+  > button:before { 
+    content: "\f106";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    color: #717171;
+    line-height: 12px;
+  }
+
+  > button[data-action="collapse"]:before { 
+    content: "\f107"; 
+  }
+
+  > button {
+    &:hover {
+      &:before {
+        color: #357ebd;
+      }
+    }
+  }
+
+}

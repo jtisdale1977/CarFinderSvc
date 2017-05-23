@@ -1,0 +1,226 @@
+/***********************************/
+/************* GALLERY *************/
+/***********************************/
+
+.img-view {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    @include opacity(0);
+    @include transition(all 0.4s ease-in-out);
+    background-color: transparentize($cyan, .3);
+    z-index: 99;
+
+    .media-info {
+      text-align: center;
+      position: relative;
+      padding: 10px;
+      background: $transparent-black-8;
+      margin: 20px 0 0 0;
+      @include transform(translateY(-100px));
+      @include opacity(0);
+      @include transition(all 0.2s ease-in-out);
+      z-index: 999;
+
+      .checkbox {
+        float: left;
+        margin: 0!important;
+        padding: 0;
+        margin-top: -9px!important;
+        position: absolute;
+
+        label {
+          &:after {
+            left: 1px;
+          }
+        }
+      }
+
+      h2 {
+        color: white;
+        font-size: 16px;
+        margin: 0;
+      }
+
+      span {
+        font-size: $font-size-mini;
+        color: $transparent-white-5;
+        font-style: italic;
+      }
+
+      button {
+        float: right;
+        margin: 0;
+        padding: 0;
+        margin-top: -9px;
+        position: absolute;
+        right: 10px;
+        padding: 1px 6px;
+      }
+
+      .dropdown-menu {
+        top: 15px;
+        right: 33px;
+        left: auto;
+        text-align: left;
+        min-width: 120px;
+
+        >li {
+          >a {
+            font-size: $font-size-mini;
+            color: $font-color;
+            padding: 3px 10px;
+            line-height: 20px;
+
+            i {
+              font-size: $font-size-base;
+              width: 15px;
+              color: lighten($font-color, 20%);
+            }
+
+            &:hover {
+              color: $blue;
+
+              i {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    p {
+      font-family: $font-georgia;
+      font-size: $font-size-small;
+      font-style: italic;
+      position: relative;
+      color: $transparent-white-9;
+      padding: 10px 20px 20px;
+      text-align: center;
+      max-width: 320px;
+      margin: 10px auto 0 auto;
+      @include transform(translateY(100px));
+      @include opacity(0);
+      @include transition(all 0.2s linear);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    display: block;
+    position: relative;
+    @include transition(all 0.2s linear);
+  }
+
+  &:hover {
+    img {
+      @include transform(scale(1.1,1.1));
+    }
+
+    .overlay {
+      @include opacity(1);
+
+      .media-info,
+      p {
+        @include transform(translateY(0px));
+        @include opacity(1);
+      }
+
+      p {
+        @include transition-delay(0.1s);
+      }
+    }
+  }
+
+  &.selected {
+    .overlay {
+      @include opacity(1);
+    }
+    .media-info {
+      @include transform(translateY(0px));
+      @include opacity(1);
+    }
+  }
+}
+
+/* superbox */
+
+.superbox {
+  .superbox-list {
+    padding: 0;
+    margin: 5px;
+
+    .superbox-img {
+
+    }
+  }
+
+  .superbox-show {
+    @include box-shadow(none);
+    background: $transparent-black-3;
+    width: calc(100% - 13px);
+    margin: 0 5px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+/* colorbox */
+.colorbox {
+  .colorbox-list {
+    padding: 0;
+    margin: 5px;
+  }
+}
+
+@media only screen and (min-width: 320px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 680px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 47.8%;
+  }
+}
+@media only screen and (min-width: 1128px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 31.8%;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 23.8%;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 19%;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .superbox-list,
+  .colorbox-list {
+    width: 15.85%;
+  }
+}

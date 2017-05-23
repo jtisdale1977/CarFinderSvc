@@ -1,0 +1,441 @@
+/*****************************************/
+/************* PROFILE PAGE **************/
+/*****************************************/
+
+.user-card {
+  h3 {
+    text-align: center;
+  }
+
+  h5 {
+    text-align: center;
+    font-size: $font-size-small;
+    color: $transparent-black-3;
+    font-family: $font-roboto;
+  }
+
+  .profile-controls {
+    text-align: center;
+
+    .profile-photo {
+      width: 120px;
+      border: 5px solid white;
+      position: relative;
+      z-index: 99;
+      @include box-shadow(0 0 0 1px $transparent-black-1);
+    }
+
+    >li {
+      vertical-align: middle;
+      padding: 0;
+    }
+
+    .mailto,
+    .callto {
+      position: relative;
+
+      >a {
+        background-color: white;
+        padding: 5px 10px;
+        position: absolute;
+        top: -15px;
+        white-space: nowrap;
+        font-size: $font-size-mini;
+        @include transition(all .2s linear);
+        color: $transparent-black-2;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        i {
+          font-size: $font-size-base;
+        }
+      }
+    }
+
+    .mailto{
+
+      >a {
+        @include border-left-radius(20px);
+        left: -28px;
+
+        &:hover {
+          left: -93px;
+          color: $green;
+        }
+
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .callto {
+
+      >a {
+        @include border-right-radius(20px);
+        right: -25px;
+
+        .calling {
+          display: none;
+        }
+
+        &:hover,
+        &.active {
+          right: -53px;
+          color: $red;
+        }
+
+        &.active {
+          .call {
+            display: none;
+          }
+          .calling {
+            display: inline;
+          }
+
+          right: -73px;
+        }
+
+        i {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .social-networks {
+    text-align: right;
+
+    >a {
+      color: $transparent-white-4;
+      padding: 3px;
+
+      i {
+        font-size: 1.5em;
+        @include transition(all .15s linear);
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+p.about-me {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,.7);
+  text-align: justify;
+}
+
+.friend-list {
+  padding: 0;
+  list-style-type: none;
+
+  >li {
+    padding: 10px 0;
+    border-bottom: 1px solid $transparent-white-3;
+
+    &:last-child {
+      padding-bottom: 0;
+      border: 0;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    .media {
+      .profile-photo {
+        img {
+          width: 50px;
+        }
+      }
+      .media-body {
+        .media-heading {
+          line-height: 50px;
+          margin: 0;
+          font-family: $font-roboto;
+          padding-left: 20px;
+          display: inline-block;
+        }
+        .btn {
+          float: right;
+          position: relative;
+          top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.project-list {
+  padding: 0;
+  list-style-type: none;
+
+  >li {
+    min-height: 50px;
+    padding: 10px 0;
+    border-bottom: 1px solid $transparent-black-05;
+
+    &:last-child {
+      min-height: 40px;
+      padding-bottom: 0;
+      border: 0;
+    }
+
+    &:first-child {
+      min-height: 40px;
+      padding-top: 0;
+    }
+
+    .project-name {
+      line-height: 30px;
+    }
+
+    .progress {
+      margin-bottom: 0;
+    }
+
+    .progress-info {
+      line-height: 26px;
+    }
+  }
+}
+
+body #content {
+  .feed-form,
+  .new-comment-container {
+
+    textarea {
+      width: 100%;
+      resize: none;
+      border-bottom: 0!important;
+      @include border-radius(4px 4px 0 0!important);
+
+      &:focus {
+        @include box-shadow(none!important);
+      }
+    }
+
+    .post-toolbar {
+      padding: 5px 10px;
+      @include border-radius(0 0 4px 4px);
+      border: 1px solid #e2e2e2;
+      border-top: 0;
+      @include transition(all .2s linear);
+
+      >a {
+        color: $transparent-black-2;
+        padding: 2px 5px;
+        @include transition(all .2s linear);
+
+        &:hover {
+          color: $transparent-black-4;
+        }
+      }
+    }
+
+    textarea:focus+.post-toolbar {
+      border-color: #b2b2b2;
+      @include box-shadow(1px 1px 1px 0 rgba(0, 0, 0, 0.1));
+    }
+  }
+
+  .feed-list {
+    padding: 20px 0;
+
+    article {
+      &:last-of-type {
+        .feed-container {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .feed-post {
+      margin-bottom: 20px;
+
+      .profile-photo {
+        width: 18%;
+        max-width: 130px;
+        display: inline-block;
+        vertical-align: top;
+
+        >a {
+          img {
+            width: 80%;
+            max-width: 68px;
+          }
+        }
+      }
+
+      .feed-container {
+        width: 75%;
+        display: inline-block;
+        vertical-align: top;
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 20px;
+
+        header {
+          margin-bottom: 10px;
+
+          .author {
+            color: lighten($font-color, 20%);
+
+            a {
+              font-weight: $font-weight-bold;
+              color: darken($font-color, 10%);
+
+              &:hover {
+                color: lighten($font-color, 10%);
+              }
+            }
+
+            small {
+              display: block;
+              color: lighten($font-color, 35%);
+              font-size: $font-size-mini;
+            }
+          }
+        }
+
+        .feed-content {
+          p {
+            color: lighten($font-color, 20%);
+            font-size: $font-size-small;
+          }
+
+          .feed-image {
+            margin-bottom: 15px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+
+        footer {
+          margin-top: 15px;
+
+          >a {
+            color: darken($font-color, 10%);
+            font-size: $font-size-small;
+            display: inline-block;
+            margin-right: 20px;
+
+            >i {
+              margin-right: 3px;
+            }
+
+            &:hover {
+              color: lighten($font-color, 10%);
+              text-decoration: none;
+            }
+
+            span {
+              color: lighten($font-color, 35%);
+              font-size: $font-size-mini;
+            }
+
+            &.liked {
+              >i {
+                color: $red;
+              }
+            }
+          }
+
+          .comments {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+            border-top: 1px solid #e2e2e2;
+            padding-top: 20px;
+
+            >li {
+
+              &:not(:first-child) {
+                margin-top: 15px;
+              }
+
+              .profile-photo,
+              .comment-container,
+              .new-comment-container {
+                display: table-cell;
+                vertical-align: top;
+                width: 100%;
+              }
+
+              .profile-photo {
+                width: 1%;
+                padding-right: 15px;
+
+                >img {
+                  width: 36px;
+                }
+              }
+
+              .comment-container {
+                font-size: $font-size-small;
+                color: lighten($font-color, 20%);
+                border-bottom: 1px solid #e2e2e2;
+                padding-bottom: 15px;
+
+                .comment-author {
+                  font-weight: $font-weight-bold;
+                  color: darken($font-color, 10%);
+
+                  &:hover {
+                    color: lighten($font-color, 10%);
+                  }
+                }
+
+                .comment-meta {
+                  font-size: $font-size-mini;
+                  margin-top: 15px;
+
+                  >a {
+                    color: lighten($font-color, 35%);
+                    display: inline-block;
+                    margin: 0 5px;
+                    @include transition(all .15s linear);
+
+                    &:first-child {
+                      margin-left: 0;
+                    }
+
+                    &:hover {
+                      color: $font-color;
+                      text-decoration: none;
+                    }
+
+                    &.liked {
+                      >i {
+                        color: $red;
+                      }
+                    }
+                  }
+
+                  >i {
+                    font-size: 5px;
+                    position: relative;
+                    top: -1.6px;
+                  }
+                }
+              }
+
+              .new-comment-container {
+                .post-toolbar {
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,390 @@
+/*********************************/
+/************* CHAT **************/
+/*********************************/
+
+.chat {
+  .tile {
+    margin-bottom: 0!important;
+  }
+}
+
+ul.chat-nav {
+  >li {
+    padding: 0;
+  }
+
+  &.main-nav {
+    >li {
+      h3 {
+        line-height: 28px!important;
+        .badge {
+          position: relative;
+          top: -2px;
+        }
+      }
+      &.pull-right {
+        line-height: 28px;
+      }
+    }
+  }
+  &.side-nav {
+    >li {
+      position: relative;
+
+      h3 {
+        line-height: 28px!important;
+      }
+
+      .dropdown-toggle {
+        border-right: 0;
+      }
+
+      .form-control {
+        position: absolute;
+        z-index: 9;
+        left: -22px;
+        min-height: 22px!important;
+        height: 22px!important;
+        @include border-right-radius(0!important);
+        display: none;
+        color: $font-color;
+        font-size: 11px;
+
+        @include placeholder {
+          color: $font-color;
+        }
+
+        &.active {
+          display: inline-block;
+        }
+
+        &:focus {
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.chat-inbox {
+  padding: 0;
+  list-style: none;
+
+  >li {
+    padding: 5px 15px;
+
+    &:first-child {
+      padding: 15px;
+    }
+
+    &:last-child {
+      padding-bottom: 15px;
+    }
+
+    >a {
+      display: block;
+      padding: 10px 15px;
+      position: relative;
+      @include border-radius(4px);
+
+      &:hover {
+        text-decoration: none;
+        background-color: $transparent-white-05;
+
+        .media .media-body .chat-actions {
+          display: block;
+        }
+      }
+
+      .media {
+        position: relative;
+
+        .media-object {
+          width: 50px;
+          height: 50px;
+          @include opacity(.4);
+        }
+
+       .badge {
+          font-size: 9px;
+          padding: 2px 4px;
+          position: absolute;
+          top: 0;
+          left: 35px;
+        }
+
+        .media-body {
+
+          .message {
+            font-size: $font-size-mini;
+            color: $transparent-white-8;
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            width: 85%;
+          }
+
+          .chat-actions {
+            position: absolute;
+            right: 0;
+            bottom: 8px;
+            font-size: 11px;
+            display: none;
+
+            >span {
+              margin-left: 4px;
+              color: $transparent-white-4;
+              cursor: pointer;
+
+              &.archive {
+                &:hover {
+                  color: $red;
+                }
+              }
+
+              &.mark-unread {
+                &:hover {
+                  color: $greensea;
+                  i {
+                    &:before {
+                      content: "\f111";
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .media-heading {
+            font-size: $font-size-base;
+            color: $transparent-white-8;
+            margin: 0;
+            position: relative;
+            padding-top: 7px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+            .time {
+              float: right;
+              font-size: $font-size-mini;
+              font-weight: $font-weight-light;
+              color: $transparent-white-8;
+            }
+          }
+        }
+      }
+
+      &.unread,
+      &.active {
+        .media {
+          .media-object {
+            opacity:1;
+            filter:alpha(opacity=100); /* For IE8 and earlier */
+          }
+          .media-heading {
+            color: white;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+
+      &.unread {
+        background-color: $transparent-black-15;
+        @include box-shadow(0 3px 0 $transparent-black-05);
+
+        &:hover {
+          background-color: $transparent-black-25;
+        }
+      }
+
+      &.active {
+        cursor: default;
+        background-color: $transparent-white-15;
+        border: 1px solid $transparent-white-1;
+        @include box-shadow(0 3px 0 $transparent-black-05);
+      }
+    }
+  }
+}
+
+.chat-content {
+  padding: 20px 0;
+
+  .chat-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: $transparent-white-7;
+
+    >li {
+      position: relative;
+      padding: 10px 0;
+
+      &.conversation-divider {
+        font-size: $font-size-mini;
+        color: $transparent-white-7;
+        text-align: center;
+
+        span {
+          display: inline-block;
+          position: relative;
+          background-color: $transparent-black-15;
+          padding: 3px 10px;
+          @include border-radius(3px);
+          @include box-shadow(0 3px 0 $transparent-black-05);
+        }
+      }
+
+      &.message {
+        .media {
+
+          .user-avatar {
+            position: relative;
+
+            .media-object {
+              width: 64px;
+              height: 64px;
+            }
+            &:after {
+              border-bottom: 10px solid transparent;
+              border-top: 10px solid transparent;
+              content: "";
+              height: 0;
+              position: absolute;
+              top: 10px;
+              width: 0;
+              z-index: 1;
+            }
+          }
+          .media-body {
+            background: $transparent-white-15;
+            padding: 10px 15px;
+            @include border-radius(4px);
+            margin-bottom: 3px;
+            font-size: $font-size-small;
+            font-weight: $font-weight-light;
+            line-height: 20px;
+            @include box-shadow(0 3px 0 $transparent-black-05);
+
+            .media-heading {
+              >a {
+                font-weight: $font-weight-bold;
+                font-size: $font-size-small;
+                color: white;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              .time {
+                float: right;
+                font-size: $font-size-mini;
+                color: $transparent-white-5;
+                font-weight: $font-weight-light;
+              }
+            }
+          }
+        }
+
+        &.receive {
+          .media {
+            .media-body {
+              border: 1px solid $transparent-white-1;
+            }
+            .user-avatar {
+              margin-right: 15px;
+
+              &:after {
+                border-right: 10px solid;
+                border-right-color: $transparent-white-15;
+                right: -15px;
+              }
+            }
+          }
+        }
+
+        &.sent {
+          .media {
+            .user-avatar {
+              float: right!important;
+              margin-right: 0;
+              margin-left: 15px;
+
+              &:after {
+                border-left: 10px solid;
+                border-left-color: $transparent-black-15;
+                left: -15px;
+              }
+            }
+            .media-body {
+              background-color: $transparent-black-15;
+              text-align: right;
+
+              .time {
+                float: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.chat-reply {
+  height: 200px;
+
+  textarea {
+    width: 100%;
+    height: 142px!important;
+    resize: none;
+    border: 0!important;
+    background-color: $transparent-black-3!important;
+    @include border-radius(4px 4px 0 0!important);
+    color: white!important;
+
+    @include placeholder {
+      color: $transparent-white-7!important;
+    }
+
+    &:focus {
+      background-color: $transparent-black-5!important;
+    }
+  }
+
+  .btn-group {
+    width: 100%;
+    background: $transparent-white-15!important;
+    padding: 15px;
+    @include border-radius(0 0 4px 4px!important);
+
+    button,
+    .btn {
+      &.last-in-group {
+        @include border-right-radius(4px!important);
+      }
+      &.last {
+        @include border-radius(4px!important);
+        margin-left: 5px;
+      }
+    }
+
+    div.checkbox {
+      margin: 0!important;
+      margin-top: 4px!important;
+      margin-right: 10px!important;
+      position: absolute;
+      top: -35px;
+      right: 0;
+      @include opacity(.5);
+      @include transition(all .15s linear);
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
+  }
+}

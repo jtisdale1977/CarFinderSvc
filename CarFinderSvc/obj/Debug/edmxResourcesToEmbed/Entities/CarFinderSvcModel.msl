@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarFinderSvcStoreContainer" CdmEntityContainer="CarFinderSvcEntities">
+    <EntitySetMapping Name="BodyStyles">
+      <EntityTypeMapping TypeName="CarFinderSvc.BodyStyle">
+        <MappingFragment StoreEntitySet="BodyStyles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="CarFinderSvc.Car">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="make_id" ColumnName="make_id" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="bodystyle_id" ColumnName="bodystyle_id" />
+          <ScalarProperty Name="engine_position_id" ColumnName="engine_position_id" />
+          <ScalarProperty Name="engine_cc" ColumnName="engine_cc" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_type_id" ColumnName="engine_type_id" />
+          <ScalarProperty Name="engine_valves_per_cyl" ColumnName="engine_valves_per_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="engine_power_rpm" ColumnName="engine_power_rpm" />
+          <ScalarProperty Name="engine_torque_nm" ColumnName="engine_torque_nm" />
+          <ScalarProperty Name="engine_torque_rpm" ColumnName="engine_torque_rpm" />
+          <ScalarProperty Name="engine_bore_mm" ColumnName="engine_bore_mm" />
+          <ScalarProperty Name="engine_stroke_mm" ColumnName="engine_stroke_mm" />
+          <ScalarProperty Name="engine_compression" ColumnName="engine_compression" />
+          <ScalarProperty Name="engine_fuel_id" ColumnName="engine_fuel_id" />
+          <ScalarProperty Name="top_speed_kph" ColumnName="top_speed_kph" />
+          <ScalarProperty Name="zero_to_100_kph" ColumnName="zero_to_100_kph" />
+          <ScalarProperty Name="drive_id" ColumnName="drive_id" />
+          <ScalarProperty Name="transmission_type_id" ColumnName="transmission_type_id" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="length_mm" ColumnName="length_mm" />
+          <ScalarProperty Name="width_mm" ColumnName="width_mm" />
+          <ScalarProperty Name="height_mm" ColumnName="height_mm" />
+          <ScalarProperty Name="wheelbase_mm" ColumnName="wheelbase_mm" />
+          <ScalarProperty Name="lkm_hwy" ColumnName="lkm_hwy" />
+          <ScalarProperty Name="lkm_mixed" ColumnName="lkm_mixed" />
+          <ScalarProperty Name="lkm_city" ColumnName="lkm_city" />
+          <ScalarProperty Name="fuel_cap_l" ColumnName="fuel_cap_l" />
+          <ScalarProperty Name="sold_in_us" ColumnName="sold_in_us" />
+          <ScalarProperty Name="co2" ColumnName="co2" />
+          <ScalarProperty Name="make_display" ColumnName="make_display" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriveTypes">
+      <EntityTypeMapping TypeName="CarFinderSvc.DriveType">
+        <MappingFragment StoreEntitySet="DriveTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="drive_type" ColumnName="drive_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngineFuels">
+      <EntityTypeMapping TypeName="CarFinderSvc.EngineFuel">
+        <MappingFragment StoreEntitySet="EngineFuels">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="engine_fuel" ColumnName="engine_fuel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnginePositions">
+      <EntityTypeMapping TypeName="CarFinderSvc.EnginePosition">
+        <MappingFragment StoreEntitySet="EnginePositions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngineTypes">
+      <EntityTypeMapping TypeName="CarFinderSvc.EngineType">
+        <MappingFragment StoreEntitySet="EngineTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Makes">
+      <EntityTypeMapping TypeName="CarFinderSvc.Make">
+        <MappingFragment StoreEntitySet="Makes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="make1" ColumnName="make" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransmissionTypes">
+      <EntityTypeMapping TypeName="CarFinderSvc.TransmissionType">
+        <MappingFragment StoreEntitySet="TransmissionTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCarMakes" FunctionName="CarFinderSvc.Store.GetCarMakes" />
+    <FunctionImportMapping FunctionImportName="GetCarMakesByYear" FunctionName="CarFinderSvc.Store.GetCarMakesByYear" />
+    <FunctionImportMapping FunctionImportName="GetCarModel" FunctionName="CarFinderSvc.Store.GetCarModel" />
+    <FunctionImportMapping FunctionImportName="GetCarsByEngineSize" FunctionName="CarFinderSvc.Store.GetCarsByEngineSize">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsByEngineSize_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsByHorsePower" FunctionName="CarFinderSvc.Store.GetCarsByHorsePower">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsByHorsePower_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsByWeight" FunctionName="CarFinderSvc.Store.GetCarsByWeight">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsByWeight_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsByYearMakeModelTrim" FunctionName="CarFinderSvc.Store.GetCarsByYearMakeModelTrim">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsByYearMakeModelTrim_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsGreaterThan300HP" FunctionName="CarFinderSvc.Store.GetCarsGreaterThan300HP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsGreaterThan300HP_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsUnder2000kg" FunctionName="CarFinderSvc.Store.GetCarsUnder2000kg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsUnder2000kg_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarsUnder2000kgGreater300HP" FunctionName="CarFinderSvc.Store.GetCarsUnder2000kgGreater300HP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetCarsUnder2000kgGreater300HP_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarTrimLevels" FunctionName="CarFinderSvc.Store.GetCarTrimLevels" />
+    <FunctionImportMapping FunctionImportName="GetMidEngineCars" FunctionName="CarFinderSvc.Store.GetMidEngineCars">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetMidEngineCars_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetModelsByGivenYearMake" FunctionName="CarFinderSvc.Store.GetModelsByGivenYearMake" />
+    <FunctionImportMapping FunctionImportName="GetModelTrimsByYearMakeModel" FunctionName="CarFinderSvc.Store.GetModelTrimsByYearMakeModel" />
+    <FunctionImportMapping FunctionImportName="GetModelYears" FunctionName="CarFinderSvc.Store.GetModelYears" />
+    <FunctionImportMapping FunctionImportName="GetSUV" FunctionName="CarFinderSvc.Store.GetSUV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CarFinderSvc.GetSUV_Result">
+          <ScalarProperty Name="doors" ColumnName="doors" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="trim" ColumnName="trim" />
+          <ScalarProperty Name="weight_kg" ColumnName="weight_kg" />
+          <ScalarProperty Name="engine_cyl" ColumnName="engine_cyl" />
+          <ScalarProperty Name="engine_power_ps" ColumnName="engine_power_ps" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="body_style" ColumnName="body_style" />
+          <ScalarProperty Name="engine_type" ColumnName="engine_type" />
+          <ScalarProperty Name="transmission_type" ColumnName="transmission_type" />
+          <ScalarProperty Name="engine_position" ColumnName="engine_position" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

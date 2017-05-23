@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Search All Car Models</title>
+    <!-- Custom Theme files -->
+    <link href="~/css/searchstyle.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--Google Fonts-->
+    <link rel="icon" type="image/ico" href="~/assets/images/favicon.ico" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
+    <!-- Bootstrap -->
+    @*<link href="~/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" media="all" href="~/assets/js/vendor/mmenu/css/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="~/assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/chosen/css/chosen-bootstrap.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/ColVis.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/TableTools.css">
+
+    <link href="~/assets/css/minimal.css" rel="stylesheet">*@
+</head>
+
+<body>
+    <!--search start here-->
+    <div class="search">
+        <i> </i>
+        <div class="s-bar">
+            <form>
+                <input type="text" value="Just clicking the Search button will find all car models" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search All Car Models';}" disabled="disabled">
+                <input type="button" value="Search" onclick="find();" />
+            </form>
+        </div>
+        <p>Popular searches: <a href="@Url.Action("ByHorsePower", "CustomCarSearch")">By Horse Power,</a> <a href="@Url.Action("ByEngineSize", "CustomCarSearch")"> By Engine Size </a></p>
+        <p>Back To Home Page: <a href="@Url.Action("Index", "Home")">Cool - Whip,</a></p>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr>
+                        <th> Car Models </th>
+                    </tr>
+                </thead>
+                <tbody id="tblbody">
+                </tbody>
+            </table>
+        </div>
+        <!-- /col 12 -->
+    </div>
+    <!-- /row -->
+    <!--search end here-->
+    <div class="copyright">
+        <p>© 2017 Cool-Whip. Design by <a href="http://jtisdale-portfolio.azurewebsites.net/" target="_blank">Justin Tisdale</a></p>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- jQuery (necessary for Ajax plugins) -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    @*<script src="~/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/blockui/jquery.blockUI.js"></script>
+
+    <script src="~/assets/js/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/ColReorderWithResize.js"></script>
+    <script src="~/assets/js/vendor/datatables/colvis/dataTables.colVis.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/tabletools/ZeroClipboard.js"></script>
+    <script src="~/assets/js/vendor/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="~/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+
+    <script src="~/assets/js/minimal.min.js"></script>*@
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.5/js/jquery.dataTables.js">
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+    </script>
+
+    <script>
+        var uri = '/cars/GetCarModel';
+        function find() {
+            $.getJSON(uri)
+            .done(function (data) {
+                ///On success, 'data' contains a list of car makes
+                $("#tblbody").html("");
+                $.each(data.Data, function (key, item) {
+                    var html = '<tr>' +
+                        '<td>' + item + '<td>' +
+                        '<tr>'
+                    $(html).appendTo($('#tblbody'))
+                });
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#tblbody').text('Error: ' + err);
+            })
+            .always(function () {
+                $('#myTable').DataTable();
+            });
+        };
+    </script>
+</body>
+</html>

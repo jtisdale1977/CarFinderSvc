@@ -1,0 +1,890 @@
+/************************************/
+/************* TIMELINE *************/
+/************************************/
+
+.timeline-heading {
+  font-size: 13px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 30px;
+  margin: 0;
+  background-color: $transparent-black-3;
+  @include border-radius(4px);
+}
+
+.timeline {
+  padding: 25px 1px 5px 1px;
+  margin:0 auto;
+  overflow:hidden;
+  list-style:none;
+  position:relative;
+
+  &:after {
+    background-color: $transparent-black-3;
+    content: "";
+    left: 50%;
+    margin-left: -3px;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 6px;
+    z-index: 1;
+  }
+
+  > li {
+    position:relative;
+    float:left;
+    clear: left;
+    text-align: right;
+    width: 50%;
+    margin: 0;
+    margin-bottom: 30px;
+
+    > .el-container {
+      margin-right: 25px;
+      display: table;
+      @include border-radius(4px);
+      overflow: hidden;
+
+      > .side {
+        display: table-cell;
+        width: 200px;
+        text-align: center;
+        font-size: 65px;
+        vertical-align: middle;
+        background-color: #555;
+        color: #fff;
+        @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, .08));
+
+        img {
+          width: 100%;
+        }
+      }
+
+      > .content {
+        display: table-cell;
+        text-align: left;
+        background:#ffffff;
+        padding: 15px;
+        @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, .08));
+
+        span.time {
+          float: right;
+          color: $transparent-black-3;
+          font-weight: $font-weight-light;
+          font-size: $font-size-base;
+
+          i {
+            font-size: 14px;
+            color: $transparent-black-3;
+          }
+        }
+
+        h1 {
+          margin-top: 0;
+          font-size: 24px;
+          color: $font-color;
+          -webkit-font-smoothing: antialiased;
+        }
+
+        p {
+          color: #999;
+          font-size: 13px;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        i.block {
+          width: 100%;
+          text-align: center;
+          font-size: 180px;
+          background-color: #fafafa;
+          color: $font-color;
+          padding: 50px 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    > .pointer {
+      position: absolute;
+      background-color: white;
+      right: -13px;
+      top: 46px;
+      width: 25px;
+      height: 25px;
+      @include border-radius(50%);
+      z-index: 2;
+      text-align: center;
+      line-height: 24px;
+
+      &.cyan {
+        background-color: $cyan;
+        i {
+          color: white;
+        }
+      }
+
+      &.red {
+        background-color: $red;
+        i {
+          color: white;
+        }
+      }
+
+      &.green {
+        background-color: $green;
+        i {
+          color: white;
+        }
+      }
+
+      &.orange {
+        background-color: $orange;
+        i {
+          color: white;
+        }
+      }
+
+      &.amethyst {
+        background-color: $amethyst;
+        i {
+          color: white;
+        }
+      }
+
+      &.greensea {
+        background-color: $greensea;
+        i {
+          color: white;
+        }
+      }
+
+      &.drank {
+        background-color: $drank;
+        i {
+          color: white;
+        }
+      }
+
+      &.hotpink {
+        background-color: $hotpink;
+        i {
+          color: white;
+        }
+      }
+
+      &.dutch {
+        background-color: $dutch;
+        i {
+          color: white;
+        }
+      }
+
+      &.blue {
+        background-color: $blue;
+        i {
+          color: white;
+        }
+      }
+
+      &.redbrown {
+        background-color: $redbrown;
+        i {
+          color: white;
+        }
+      }
+
+      &.slategray {
+        background-color: $slategray;
+        i {
+          color: white;
+        }
+      }
+
+      i {
+        color: $font-color;
+        font-size: $font-size-base;
+      }
+    }
+
+    &:after {
+      border-bottom: 10px solid transparent;
+      border-top: 10px solid transparent;
+      content: "";
+      height: 0;
+      position: absolute;
+      top: 48px;
+      width: 0;
+      z-index: 1;
+    }
+
+    &:first-child {
+      > .pointer {
+        top: 6px;
+      }
+
+      &:after {
+        top: 8px;
+      }
+    }
+
+    &:nth-of-type(even) {
+      float:right;
+      clear: right;
+      text-align:left;
+
+      > .el-container {
+        margin-right: 0;
+        margin-left: 25px;
+
+        > .content {
+
+        }
+      }
+
+      > .pointer {
+        right: auto;
+        left: -13px;
+      }
+
+      &:after {
+        border-right: 10px solid;
+        border-right-color: white;
+        left: 15px;
+      }
+    }
+
+    &:nth-of-type(odd) {
+      &:after {
+        border-left: 10px solid;
+        border-left-color: white;
+        left: auto;
+        right: 16px;
+      }
+    }
+
+    &.full-width {
+      clear: both;
+      float: none;
+      text-align: center;
+      width: auto;
+      z-index: 2;
+
+      &:after {
+        border-bottom: 10px solid;
+        border-bottom-color: white;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        left: 50%;
+        margin-left: -10px;
+        right: auto;
+        top: -20px;
+      }
+
+      > .el-container {
+        margin: 0;
+
+        .content {
+        }
+      }
+
+      > .pointer {
+        left: 50%;
+        margin-left: -12px;
+        right: auto;
+        top: -38px;
+
+        i {
+          margin-left: 1px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.color {
+
+      > .el-container {
+        > .content {
+          h1,
+          p {
+            color: white;
+          }
+
+          .time,
+          .time i {
+            color: $transparent-white-6;
+          }
+        }
+      }
+
+      &.red {
+        > .el-container {
+          > .content {
+            background-color: $red;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $red;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $red;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $red;
+          }
+        }
+      }
+
+      &.cyan {
+        > .el-container {
+          > .content {
+            background-color: $cyan;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $cyan;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $cyan;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $cyan;
+          }
+        }
+      }
+
+      &.green {
+        > .el-container {
+          > .content {
+            background-color: $green;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $green;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $green;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $green;
+          }
+        }
+      }
+
+      &.orange {
+        > .el-container {
+          > .content {
+            background-color: $orange;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $orange;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $orange;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $orange;
+          }
+        }
+      }
+
+      &.amethyst {
+        > .el-container {
+          > .content {
+            background-color: $amethyst;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $amethyst;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $amethyst;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $amethyst;
+          }
+        }
+      }
+
+      &.greensea {
+        > .el-container {
+          > .content {
+            background-color: $greensea;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $greensea;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $greensea;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $greensea;
+          }
+        }
+      }
+
+      &.drank {
+        > .el-container {
+          > .content {
+            background-color: $drank;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $drank;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $drank;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $drank;
+          }
+        }
+      }
+
+      &.hotpink {
+        > .el-container {
+          > .content {
+            background-color: $hotpink;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $hotpink;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $hotpink;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $hotpink;
+          }
+        }
+      }
+
+      &.dutch {
+        > .el-container {
+          > .content {
+            background-color: $dutch;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $dutch;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $dutch;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $dutch;
+          }
+        }
+      }
+
+      &.blue {
+        > .el-container {
+          > .content {
+            background-color: $blue;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $blue;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $blue;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $blue;
+          }
+        }
+      }
+
+      &.redbrown {
+        > .el-container {
+          > .content {
+            background-color: $redbrown;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $redbrown;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $redbrown;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $redbrown;
+          }
+        }
+      }
+
+      &.slategray {
+        > .el-container {
+          > .content {
+            background-color: $slategray;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $slategray;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $slategray;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $slategray;
+          }
+        }
+      }
+
+      &.transparent-black {
+        > .el-container {
+          > .content {
+            background-color: $transparent-black-3;
+
+            i.block {
+              background-color: $transparent-black-2;
+              color: $transparent-white-6;
+            }
+          }
+          >.side {
+            background-color: $transparent-black-6;
+          }
+        }
+
+        &.textured {
+           > .el-container {
+            > .content {
+              background: $transparent-black-3 url(../images/dot_pattern.png) repeat;
+            }
+            >.side {
+              background: $transparent-black-6 url(../images/dot_pattern.png) repeat;
+            }
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $transparent-black-3;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $transparent-black-3;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $transparent-black-3;
+          }
+        }
+      }
+
+      &.transparent-white {
+        > .el-container {
+          > .content {
+            background-color: $transparent-white-2;
+
+            i.block {
+              background-color: $transparent-white-2;
+              color: $transparent-white-9;
+            }
+
+            .time,
+            .time i {
+              color: $transparent-white-9;
+            }
+          }
+          >.side {
+            background-color: $transparent-black-3;
+          }
+        }
+
+        &:nth-of-type(odd) {
+          &:after {
+            border-left-color: $transparent-white-2;
+          }
+        }
+        &:nth-of-type(even) {
+          &:after {
+            border-right-color: $transparent-white-2;
+          }
+        }
+        &.full-width {
+          &:after {
+            border-bottom: 10px solid;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom-color: $transparent-white-2;
+          }
+        }
+      }
+    }
+  }
+  &.timeline-mini {
+    padding-top: 25px;
+
+    &:after {
+      left: 20px;
+    }
+
+    >li {
+      clear: both;
+      float: none;
+      width: 100%;
+      z-index: 2;
+      padding-left: 45px;
+      margin-bottom: 25px;
+
+      > .el-container {
+        margin: 0!important;
+      }
+
+      &:nth-of-type(odd),
+      &:nth-of-type(even) {
+        &:after {
+          border-right: 10px solid;
+          border-right-color: white;
+          border-left: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          left: 25px;
+          margin-left: 0;
+          right: auto;
+          top: 14px;
+        }
+        > .pointer {
+          left: 6px;
+          right: auto;
+          top: 10px;
+          margin-left: 0;
+        }
+
+        &.color {
+          &.red {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $red;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.cyan {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $cyan;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.green {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $green;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.orange {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $orange;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.amethyst {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $amethyst;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.greensea {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $greensea;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.drank {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $drank;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.hotpink {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $hotpink;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.dutch {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $dutch;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.blue {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $blue;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.redbrown {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $redbrown;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.slategray {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $slategray;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.transparent-black {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $transparent-black-3;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+          &.transparent-white {
+            &:after {
+              border-right: 10px solid;
+              border-right-color: $transparent-white-2;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Vehicle Search By Engine Size</title>
+    <!-- Custom Theme files -->
+    <link href="~/css/searchstyle.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--Google Fonts-->
+</head>
+<body>
+    <!--search start here-->
+    <div class="search">
+        <i> </i>
+        <div class="s-bar">
+            <form>
+                <input type="text" value="Search By Engine Size" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search By Engine Size';}">
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+        <p>Popular searches: <a href="@Url.Action("SUV", "CustomCarSearch")">All SUV's,</a> <a href="@Url.Action("ByWeight", "CustomCarSearch")"> Weight </a></p>
+        <p>Back To Home Page: <a href="@Url.Action("Index", "Home")">Cool - Whip,</a></p>
+    </div>
+    <!--search end here-->
+    <div class="copyright">
+        <p>© 2017 Cool-Whip. Design by <a href="http://jtisdale-portfolio.azurewebsites.net/" target="_blank">Justin Tisdale</a></p>
+    </div>
+
+    <script>
+        var uri = 'http.//localhost:50510/api/cars/GetCarsByEngineSize';
+        function find() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+            .done(function (data) {
+                $('#product').text(formatItem(data));
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#product').text('Error:' + err);
+            })
+        }
+    </script>
+</body>
+</html>

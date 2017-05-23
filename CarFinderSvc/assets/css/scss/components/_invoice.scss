@@ -1,0 +1,246 @@
+section.invoice {
+  background-color: white;
+  padding: 50px 100px;
+  color: $font-color;
+
+  .header {
+    background-color: darken($slategray, 10%);
+    padding: 50px 100px;
+    margin: -50px -100px;
+    color: white;
+
+    h3 {
+      @include clear-margin;
+      margin-bottom: 40px;
+    }
+
+    h4 {
+      @include condensed-light;
+      color: $transparent-white-2;
+      border-bottom: 3px solid $transparent-white-05;
+      padding-bottom: 5px;
+    }
+
+    address {
+      font-weight: $font-weight-light;
+      color: $transparent-white-5;
+      font-size: $font-size-small;
+
+      strong {
+        color: white;
+        font-size: $font-size-large;
+      }
+    }
+
+    .arrow {
+      text-align: center;
+      padding-top: 150px;
+
+      .fa {
+        color: $transparent-white-15;
+        border: 1px solid;
+        @include border-radius(50%);
+        width: 60px;
+        height: 60px;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .header,
+  .footer {
+    .total {
+      margin: 0;
+      background-color: $slategray;
+      width: 65%;
+      min-width: 215px;
+      float: right;
+      padding: 10px;
+      text-align: left;
+
+      dt {
+        width: auto;
+        float: none;
+        text-align: left;
+        @include condensed-light;
+      }
+
+      dd {
+        margin-left: 0px;
+        text-align: right;
+        font-size: 26px;
+        margin-top: 10px;
+        font-weight: $font-weight-light;
+
+        strong {
+          font-weight: $font-weight-normal;
+        }
+      }
+    }
+  }
+
+  .footer{
+    .summary {
+      background-color: darken($slategray, 10%);
+      padding: 20px;
+      color: white;
+      text-align: right;
+      margin-bottom: 50px;
+
+      dl:not(.total) {
+        dt {
+          text-align: left;
+          @include condensed-light;
+          color: $transparent-white-5;
+          width: auto;
+          float: left;
+        }
+
+        dd {
+          text-align: right;
+          margin-left: 0;
+        }
+      }
+
+      .total {
+        float: none;
+        display: inline-block;
+        position: relative;
+        bottom: -20px;
+        right: -20px;
+      }
+    }
+  }
+
+  table {
+    margin-top: 13px;
+    margin-bottom: 50px;
+
+    thead,
+    tbody {
+      tr {
+        td,
+        th {
+          text-align: center;
+
+          &:last-child {
+            text-align: right;
+          }
+
+          &.description{
+            text-align: left;
+            width: 680px;
+            max-width: 680px;
+            font-weight: $font-weight-light;
+
+            strong {
+              @include condensed-light;
+            }
+          }
+        }
+      }
+    }
+
+    thead {
+      tr {
+        th {
+          background-color: darken($slategray, 15%);
+          border: 0;
+          @include condensed-light;
+          color: $transparent-white-5;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:first-child {
+          td {
+            border-top: 0;
+          }
+        }
+
+        &:last-child {
+          td {
+            border-bottom: 1px solid #ddd;
+          }
+        }
+
+        td {
+          white-space: nowrap;
+          &.description {
+            font-size: 11px;
+            white-space: normal;
+
+            strong {
+              font-weight: $font-weight-bold;
+              font-size: $font-size-base;
+            }
+
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  section.invoice {
+    padding: 50px;
+
+    .header {
+      padding: 50px;
+      margin: -50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  section.invoice {
+
+    .header {
+      .text-right {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section.invoice {
+    padding: 50px 20px;
+
+    .header {
+      padding: 50px 20px;
+      margin: -50px -20px;
+    }
+  }
+}
+
+@media print {
+  section.invoice {
+    .header {
+      -webkit-print-color-adjust: exact;
+      background-color: #e2e2e2 !important;
+    }
+    .header,
+    .footer {
+      .total {
+        -webkit-print-color-adjust: exact;
+        background-color: #d2d2d2 !important;
+      }
+    }
+    .footer {
+      .summary {
+        -webkit-print-color-adjust: exact;
+        background-color: #e2e2e2 !important;
+      }
+    }
+    table thead tr th {
+      -webkit-print-color-adjust: exact;
+      background-color: #d2d2d2 !important;
+    }
+  }
+}

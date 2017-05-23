@@ -1,0 +1,267 @@
+/**********************************/
+/************* TASKS **************/
+/**********************************/
+
+.task-list {
+  padding: 20px 0;
+  margin: 20px auto;
+  list-style:none;
+  position:relative;
+  width: 100%;
+
+  &:after {
+    background-color: $font-color;
+    content: "";
+    left: 0;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 3px;
+    z-index: 1;
+  }
+
+  > li {
+    position:relative;
+    margin: 0;
+    margin-bottom: 30px;
+    padding-left: 20px;
+
+    >.pointer {
+      position: absolute;
+      background-color: $font-color;
+      left: -6px;
+      top: 2px;
+      width: 15px;
+      height: 15px;
+      @include border-radius(50%);
+      z-index: 2;
+      text-align: center;
+    }
+
+    &.more {
+      >.pointer {
+        top: 10px;
+      }
+    }
+
+    .task-group {
+
+      >.task {
+        @include border-radius(0);
+        border: 1px solid $transparent-black-2;
+        border-left: 0;
+        position: relative;
+
+        >.priority {
+          position: absolute;
+          width: 5px;
+          height: 100%;
+          background-color: #b2b2b2;
+          top: -1px;
+          padding-bottom: 2px;
+          @include box-sizing(content-box);
+          z-index: 9;
+
+          &.priority-high {
+            background-color: lighten($red, 10%);
+          }
+          &.priority-medium {
+            background-color: $orange;
+          }
+          &.priority-normal {
+            background-color: #b2b2b2;
+          }
+          &.priority-low {
+            background-color: $green;
+          }
+        }
+
+        .panel-heading {
+          position: relative;
+          border-bottom: 0;
+          padding-right: 80px;
+
+          .task-controls {
+            display: inline-block;
+            line-height: 28px;
+            vertical-align: bottom;
+
+            .checkbox {
+              display: inline-block;
+              padding-left: 5px;
+              label {
+                min-height: 20px;
+              }
+            }
+
+            .mark {
+              color: $transparent-black-3;
+              font-size: 20px;
+              margin-left: 5px;
+
+              &:hover {
+                color: $transparent-black-6;
+              }
+
+              &.marked {
+                color: $orange;
+
+                i {
+                  &:before {
+                    content: "\f005";
+                  }
+                }
+              }
+            }
+          }
+
+          .heading {
+            display: inline-block;
+            margin-left: 20px;
+
+            h5 {
+              margin-bottom: 0;
+              font-weight: $font-weight-bold;
+            }
+
+            small {
+              font-style: italic;
+              color: lighten($font-color, 20%);
+            }
+          }
+
+          >.label {
+            font-family: $font-roboto-condensed;
+            text-transform: uppercase;
+            position: absolute;
+            right: 80px;
+            top: 22px;
+            padding: 5px 20px;
+            font-size: $font-size-base;
+          }
+
+          .task-toggle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 66px;
+            display: block;
+            background-color: $transparent-black-05;
+            border-left: 1px solid $transparent-black-2;
+            font-size: 50px;
+            line-height: 66px;
+            color: $transparent-black-2;
+            @include transition(all .2s linear);
+
+            &:hover {
+              background-color: $transparent-black-1;
+              color: $transparent-black-3;
+            }
+
+            >i {
+              margin-left: 15px;
+            }
+          }
+        }
+
+        &.active {
+          .panel-heading {
+            border-bottom: 1px solid $transparent-black-2;
+
+            .heading {
+              h5 {
+                color: $blue;
+              }
+            }
+          }
+          .task-toggle,
+          .task-toggle:hover {
+            background-color: $blue;
+            color: white;
+            line-height: 56px;
+
+            >i {
+              &:before {
+                content: "\f106";
+              }
+            }
+          }
+        }
+
+        .task-content {
+          position: relative;
+          .media-list {
+            .media {
+              >i {
+                width: 20px;
+                text-align: center;
+                margin-right: 10px;
+              }
+
+              &:not(:first-child) {
+                margin-top: 10px;
+              }
+
+              .media-body {
+                border-bottom: 1px solid $transparent-black-1;
+                .media-heading {
+                  font-family: $font-roboto;
+                  font-style: italic;
+                  color: lighten($font-color, 10%);
+                  margin-bottom: 10px;
+
+                  strong {
+                    color: $font-color;
+                    font-style: normal;
+                    margin-right: 5px;
+                  }
+                }
+                p {
+                  font-size: $font-size-small;
+                  color: lighten($font-color, 10%);
+                }
+              }
+
+              &:last-child {
+                .media-body {
+                  border: 0;
+                }
+              }
+            }
+          }
+          .task-controls {
+            height: 100%;
+            right: 0;
+            top: 0;
+            position: absolute;
+            background-color: $transparent-black-05;
+            padding: 15px 0;
+            border-left: 1px solid $transparent-black-2;
+
+            button {
+              display: block;
+              margin: 10px auto;
+            }
+          }
+        }
+      }
+    }
+    &.completed {
+      >h5 {
+        color: lighten($font-color, 30%);
+      }
+      .task-group {
+        .task {
+          @include opacity(.35);
+          @include transition(all .2s linear);
+
+          &:hover,
+          &.active {
+            @include opacity(1);
+          }
+        }
+      }
+    }
+  }
+}

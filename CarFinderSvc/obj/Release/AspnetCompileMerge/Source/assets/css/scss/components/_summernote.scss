@@ -1,0 +1,64 @@
+/**************************************/
+/************* SUMMERNOTE *************/
+/**************************************/
+
+.note-editor {
+  border: 0;
+
+  .note-editable {
+    overflow: auto;
+    background-color: white;
+  }
+
+  .note-toolbar {
+    border-bottom: 0;
+    background-color: #f2f2f2;
+    @include border-radius(4px 4px 0 0);
+  }
+
+  .note-statusbar {
+    background-color: #f2f2f2;
+    @include border-radius(0 0 4px 4px);
+
+    .note-resizebar {
+      border-top: 1px solid transparent;
+    }
+  }
+}
+
+.transparent-editor {
+  .note-editor {
+    .note-editable {
+      background-color: $transparent-black-3;
+    }
+    .note-toolbar {
+      background-color: $transparent-black-5;
+
+      button {
+        background-color: white;
+        color: $font-color;
+
+        &:hover {
+          background-color: rgba(255,255,255,.95);
+          color: $font-color;
+
+          .caret {
+            border-top-color: $font-color;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        color: $font-color;
+      }
+    }
+
+    .note-statusbar {
+      background-color: $transparent-black-5;
+    }
+
+    .caret {
+      border-top-color: $font-color;
+    }
+  }
+}

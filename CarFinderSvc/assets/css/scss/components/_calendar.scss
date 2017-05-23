@@ -1,0 +1,293 @@
+/************************************/
+/************* CALENDAR *************/
+/************************************/
+
+.cal-options {
+  padding: 25px;
+  position: relative;
+
+  .date-info {
+    position: relative;
+    top: 0;
+    @include transition(all 0.15s linear);
+
+    &.out {
+      top: -200px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      margin-top: 0;
+
+      i {
+        font-size: 32px;
+        cursor: pointer;
+        opacity: .5;
+        border: 2px solid white;
+        @include border-radius(50%);
+
+        &#cal-prev {
+          padding: 0 11px 0 9px;
+        }
+
+        &#cal-next {
+          padding: 0 9px 0 11px;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  #event-delete {
+    margin-top: -100px;
+    margin-bottom: 50px;
+    text-align: center;
+
+    i {
+      background-color: $transparent-black-15;
+      padding: 15px;
+      border-radius: 50%;
+      width: 90px;
+      opacity: 0;
+      @include transition(all 0.15s linear);
+    }
+
+    &.in {
+      i {
+        opacity: .8;
+      }
+
+      &.active {
+        i {
+          opacity: 1;
+          background-color: rgba(0,0,0,.25);
+        }
+      }
+    }
+  }
+
+  .events-wrapper {
+    margin-top: 40px;
+
+    h4 {
+      border-bottom: 1px solid rgba(255,255,255,.5);
+      padding-bottom: 5px;
+
+      .new-event {
+        color: white;
+        opacity: .5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .external-event {
+      padding: 5px 10px;
+      background-color: white;
+      margin: 5px 0;
+      color: $font-color;
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+      opacity: .8;
+      @include border-radius(4px);
+      border-left: 10px solid $font-color;
+      cursor: move;
+      @include transition(opacity 0.15s linear);
+      &:hover {
+        opacity: 1;
+      }
+
+      &[data-color="primary"] {
+        border-left: 10px solid #428bca;
+      }
+      &[data-color="success"] {
+        border-left: 10px solid #5cb85c;
+      }
+      &[data-color="info"] {
+        border-left: 10px solid #5bc0de;
+      }
+      &[data-color="warning"] {
+        border-left: 10px solid #f0ad4e;
+      }
+      &[data-color="danger"] {
+        border-left: 10px solid #d9534f;
+      }
+      &[data-color="red"] {
+        border-left: 10px solid $red;
+      }
+      &[data-color="cyan"] {
+        border-left: 10px solid $cyan;
+      }
+      &[data-color="green"] {
+        border-left: 10px solid $green;
+      }
+      &[data-color="orange"] {
+        border-left: 10px solid $orange;
+      }
+      &[data-color="amethyst"] {
+        border-left: 10px solid $amethyst;
+      }
+      &[data-color="greensea"] {
+        border-left: 10px solid $greensea;
+      }
+      &[data-color="hotpink"] {
+        border-left: 10px solid $hotpink;
+      }
+      &[data-color="drank"] {
+        border-left: 10px solid $drank;
+      }
+      &[data-color="dutch"] {
+        border-left: 10px solid $dutch;
+      }
+       &[data-color="blue"] {
+        border-left: 10px solid $blue;
+      }
+       &[data-color="redbrown"] {
+        border-left: 10px solid $redbrown;
+      }
+       &[data-color="slategray"] {
+        border-left: 10px solid $slategray;
+      }
+    }
+
+    .checkbox {
+      margin-top: 15px!important;
+      padding-left: 0;
+    }
+
+  }
+}
+
+.fc {
+  .fc-view-container {
+    .fc-event {
+      padding: 3px 5px;
+      font-weight: $font-weight-light;
+      font-size: $font-size-mini;
+      @include border-radius(4px);
+    }
+
+    .fc-view {
+      &.fc-basic-view,
+      &.fc-agenda-view {
+        table {
+          > thead {
+            > tr {
+              > th {
+                &.fc-widget-header {
+                  border: 0;
+                  border-bottom: 1px solid #e2e2e2;
+                  border-top: 1px solid #e2e2e2;
+                  background-color: #f2f2f2;
+                  padding: 15px;
+                  text-transform: uppercase;
+                  color: $font-color;
+                  font-size: $font-size-small;
+                  font-weight: $font-weight-bold;
+                  font-family: $font-roboto-condensed;
+                }
+                &.fc-agenda-gutter {
+                  padding: 0;
+                }
+              }
+            }
+          }
+          >tbody {
+            > tr {
+              > td {
+                &.fc-widget-content {
+                  .fc-day-number {
+                    padding: 5px 10px;
+                    margin: 5px;
+                    color: $font-color;
+                    font-weight: $font-weight-light;
+                    font-size: $font-size-small;
+                  }
+                }
+                &:first-child {
+                  &.fc-widget-content {
+                    border-left: 1px solid #e2e2e2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.fc-agenda-view {
+        .fc-widget-content {
+          .fc-axis,
+          .fc-gutter {
+            border-left: 1px solid #e2e2e2;
+            border-right: 1px solid #e2e2e2;
+            background-color: #f2f2f2;
+            color: $font-color;
+            font-size: $font-size-mini;
+            font-weight: $font-weight-light;
+          }
+        }
+        > table {
+          > tbody {
+            > tr {
+              > td {
+                &.fc-state-highlight {
+                  background: #f2f2f2;
+                }
+                &.fc-sat {
+                  border-right: 0;
+                }
+              }
+            }
+          }
+        }
+        .fc-agenda-slots {
+
+          tr {
+            line-height: 35px;
+
+            th {
+              border: 0;
+              border-left: 1px solid #e2e2e2;
+              border-right: 1px solid #e2e2e2;
+              background-color: #f2f2f2;
+              color: $font-color;
+              font-size: $font-size-small;
+              font-weight: $font-weight-light;
+              padding-top: 10px;
+            }
+            td.fc-widget-content {
+              border-bottom: 1px solid #e2e2e2;
+              line-height: 50px;
+
+              &:last-child {
+                border-right: 0;
+              }
+            }
+            &.fc-minor {
+              td.fc-widget-content {
+                border-bottom: 1px solid #e2e2e2;
+              }
+            }
+          }
+        }
+        .fc-agenda-divider {
+          border: 1px solid #e2e2e2;
+
+          .fc-agenda-divider-inner {
+            background-color: #f2f2f2;
+            height: 3px;
+          }
+        }
+      }
+    }
+  }
+}

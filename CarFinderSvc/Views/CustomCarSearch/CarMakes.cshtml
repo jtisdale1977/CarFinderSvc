@@ -1,0 +1,204 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Search All Car Makes</title>
+    <!-- Custom Theme files -->
+    <link href="~/css/searchstyle.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--Google Fonts-->
+    <link rel="icon" type="image/ico" href="~/assets/images/favicon.ico" />
+    <!-- Bootstrap -->
+    <link href="~/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" media="all" href="~/assets/js/vendor/mmenu/css/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="~/assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/chosen/css/chosen-bootstrap.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/ColVis.css">
+    <link rel="stylesheet" href="~/assets/js/vendor/datatables/css/TableTools.css">
+
+    <link href="~/assets/css/minimal.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--search start here-->
+    <div class="search">
+        <i> </i>
+        <div class="s-bar">
+            <form>
+                <input type="text" value="Just clicking the Search button will find all car makes" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search All Car Makes';}" disabled="disabled">
+                <input type="button" value="Search" onclick="find();" />
+            </form>
+        </div>
+        <p>Popular searches: <a href="@Url.Action("ByHorsePower", "CustomCarSearch")">By Horse Power,</a> <a href="@Url.Action("ByEngineSize", "CustomCarSearch")"> By Engine Size </a></p>
+        <p>Back To Home Page: <a href="@Url.Action("Index", "Home")">Cool - Whip,</a></p>
+    </div>
+
+    <br />
+
+    <div class="=row">
+        <div class="col-md-12">
+            <!-- tile -->
+            <section class="tile transparent">
+
+                <!-- tile header -->
+                <div class="tile-header transparent">
+                    <h1><strong>Car</strong> Makes </h1>
+                    <span class="note">in: <span class="italic">Alphabetical Order</span></span>
+                    <div class="controls">
+                    </div>
+                </div>
+                <!-- /tile header -->
+                <!-- tile body -->
+                <div class="tile-body color transparent-black rounded-corners">
+
+                    <div class="table-responsive">
+                        <table class="table table-datatable table-custom" id="advancedDataTable">
+                            <thead>
+                                <tr>
+                                    <th class="sort-alpha"> Car Make </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblbody">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <!-- /tile body -->
+
+            </section>
+            <!-- /tile -->
+        </div>
+        <!-- /col 12 -->
+    </div>
+    <!-- /row -->
+    <!--search end here-->
+    <div class="copyright">
+        <p>© 2017 Cool-Whip. Design by <a href="http://jtisdale-portfolio.azurewebsites.net/" target="_blank">Justin Tisdale</a></p>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- jQuery (necessary for Ajax plugins) -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="~/assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+    <script type="text/javascript" src="~/assets/js/vendor/blockui/jquery.blockUI.js"></script>
+
+    <script src="~/assets/js/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/ColReorderWithResize.js"></script>
+    <script src="~/assets/js/vendor/datatables/colvis/dataTables.colVis.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/tabletools/ZeroClipboard.js"></script>
+    <script src="~/assets/js/vendor/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/vendor/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="~/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+
+    <script src="~/assets/js/minimal.min.js"></script>
+
+    <script>
+        var uri = 'http://jtisdale-carfinder.azurewebsites.net/cars/GetCarMakes';
+        function find() {
+            $.getJSON(uri)
+            .done(function (data) {
+                ///On success, 'data' contains a list of car makes
+                $("#tblbody").html("");
+                $.each(data.Data, function (key, item) {
+                    var html = '<tr>' +
+                        '<td>' + item + '<td>' +
+                        '<tr>'
+                    $(html).appendTo($('#tblbody'))
+                });
+            })
+            .fail(function (jqXHR, textStatus, err) {
+                $('#tblbody').text('Error: ' + err);
+            })
+            .always(function () {
+                $('#advancedDataTable').dataTable();
+            });
+        };
+    </script>
+
+    <script>
+        $(function () {
+
+            // Add custom class to pagination div
+            $.fn.dataTableExt.oStdClasses.sPaging = 'dataTables_paginate paging_bootstrap paging_custom';
+
+            $('div.dataTables_filter input').addClass('form-control');
+            $('div.dataTables_length select').addClass('form-control');
+
+            /****************************************************/
+            /**************** ADVANCED DATATABLE ****************/
+            /****************************************************/
+
+            var oTable04 = $('#advancedDataTable').dataTable({
+                "sDom":
+                  "<'row'<'col-md-4'l><'col-md-4 text-center sm-left'T C><'col-md-4'f>r>" +
+                  "t" +
+                  "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                "oTableTools": {
+                    "sSwfPath": "assets/js/vendor/datatables/tabletools/swf/copy_csv_xls_pdf.swf",
+                    "aButtons": [
+                      "copy",
+                      "print",
+                      {
+                          "sExtends": "collection",
+                          "sButtonText": 'Save <span class="caret" />',
+                          "aButtons": ["csv", "xls", "pdf"]
+                      }
+                    ]
+                },
+                "fnInitComplete": function (oSettings, json) {
+                    $('.dataTables_filter input').attr("placeholder", "Search");
+                },
+                "oColVis": {
+                    "buttonText": '<i class="fa fa-eye"></i>'
+                }
+            });
+
+            $('.ColVis_MasterButton').on('click', function () {
+                var newtop = $('.ColVis_collection').position().top - 45;
+
+                $('.ColVis_collection').addClass('dropdown-menu');
+                $('.ColVis_collection>li>label').addClass('btn btn-default')
+                $('.ColVis_collection').css('top', newtop + 'px');
+            });
+
+            $('.DTTT_button_collection').on('click', function () {
+                var newtop = $('.DTTT_dropdown').position().top - 45;
+                $('.DTTT_dropdown').css('top', newtop + 'px');
+            });
+
+            //initialize chosen
+            $('.dataTables_length select').chosen({ disable_search_threshold: 10 });
+
+            // Add custom class
+            $('div.dataTables_filter input').addClass('form-control');
+            $('div.dataTables_length select').addClass('form-control');
+
+        })
+
+    </script>
+    @*<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>*@
+</body>
+</html>

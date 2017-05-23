@@ -1,0 +1,773 @@
+/********************************/
+/************* MAIL *************/
+/********************************/
+.vertical-mail,
+.horizontal-mail {
+
+  > .row {
+    display: table;
+    > div[class*='col-'] {
+      padding: 0;
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+
+      &:first-child {
+        padding-left: 15px;
+      }
+
+      &:last-child {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  ul.navigation {
+    background-color: $transparent-black-3;
+    list-style-type: none;
+    color: white;
+    height: 100%;
+    overflow: auto;
+    @include border-radius(4px 0 0 4px);
+    @include box-shadow(0 3px 0 $transparent-black-05);
+    padding: 0 20px;
+    border: 1px solid transparent;
+
+    > li {
+      &.mark {
+        text-align: center;
+        font-size: 70px;
+        background-color: transparent;
+        padding: initial;
+      }
+
+      &.compose {
+        text-align: center;
+        margin: 20px 0 30px 0;
+
+        .btn {
+          color: white;
+          font-size: 13px;
+          padding: 10px 20px;
+          text-transform: uppercase;
+          font-weight: $font-weight-bold;
+        }
+      }
+
+      &.heading {
+        h5 {
+          text-transform: uppercase;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-mini;
+          -webkit-font-smoothing: antialiased;
+          font-family: $font-roboto-condensed;
+          padding-bottom: 2px;
+          border-bottom: 1px solid $transparent-white-3;
+          color: $transparent-white-8;
+
+          a {
+            color: $transparent-white-5;
+
+            &:hover {
+              color: white
+            }
+          }
+        }
+      }
+
+      > ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 -20px;
+
+        > li {
+          text-align: right;
+
+          a {
+            color: $transparent-white-6;
+            font-size: 16px;
+            line-height: 36px;
+            font-weight: $font-weight-bold;
+            font-family: $font-roboto-slab;
+            display: block;
+            padding-right: 20px;
+            @include transition(all .15s linear);
+
+            span.badge {
+              position: relative;
+              top: -3px;
+              margin-right: 5px;
+            }
+
+            &:hover {
+              color: white;
+              text-decoration: none;
+              background-color: $transparent-black-1;
+            }
+          }
+
+          &.active {
+
+            a {
+              font-size: 22px;
+              background-color: $transparent-black-2;
+              color: white;
+            }
+          }
+
+          &.divider {
+            padding: 5px 0;
+            background: none;
+          }
+
+          &.other,
+          &.tag {
+            a {
+              font-family: $font-roboto;
+              font-size: $font-size-base;
+              line-height: 30px;
+              font-weight: $font-weight-normal;
+              position: relative;
+
+              &:hover {
+                color: white;
+              }
+            }
+          }
+
+          &.tag {
+            a {
+              font-size: $font-size-small;
+              padding-right: 33px;
+
+              span.label {
+                position: absolute;
+                right: 20px;
+                display: inline-block;
+                width: 5px;
+                height: 15px;
+                top: 50%;
+                margin-top: -7px;
+                padding: 0;
+                @include border-radius(2px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.inbox {
+  list-style-type: none;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  background-color: $transparent-white-15;
+  @include border-radius(0 4px 4px 0);
+  @include box-shadow(0 3px 0 $transparent-black-05);
+  padding: 0 20px;
+  border: 1px solid $transparent-white-1;
+
+  > li.heading {
+    h1 {
+      text-align: center;
+      color: white;
+    }
+  }
+
+  > li.search {
+    margin: 20px 0;
+    text-align: center;
+
+    i {
+      line-height: 28px;
+      margin-right: 5px;
+      color: $transparent-white-7;
+    }
+
+    input {
+      font-family: $font-ubuntu-mono;
+      font-size: 16px;
+      color: white;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid $transparent-white-6;
+      @include transition(all 0.2s linear);
+      -webkit-appearance: none !important;
+      @include border-radius(0);
+      -webkit-font-smoothing: antialiased;
+      padding: 0!important;
+      line-height: 18px;
+      min-height: 26px;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid white;
+        @include box-shadow(none!important);
+      }
+
+      @include placeholder {
+        color: $transparent-white-7;
+      }
+    }
+  }
+
+  > li.pagination {
+    span {
+      font-size: $font-size-mini;
+      color: white;
+      font-style: italic;
+      margin-right: 5px;
+    }
+    .btn {
+      background-color: $transparent-white-15;
+      @include box-shadow(0 3px 0 $transparent-black-05);
+      border: 1px solid $transparent-white-1;
+      color: $transparent-white-7;
+
+      &:hover {
+        background-color: $transparent-white-3;
+        color: white;
+      }
+    }
+  }
+
+  > li.msg {
+    padding: 10px 20px 10px 30px;
+    cursor: pointer;
+    background-color: $transparent-white-2;
+    position: relative;
+    @include border-radius(4px);
+    margin-bottom: 5px;
+    overflow: hidden;
+    border: 1px solid $transparent-white-1;
+
+    .checkbox {
+      margin: 0;
+      padding: 0;
+      height: 0;
+      min-height: 0;
+      position: absolute;
+      left: 5px;
+      top: -10px;
+    }
+
+    .mail-favourite {
+      position: absolute;
+      left: 8px;
+      top: 32px;
+      color: white;
+      text-shadow: 1px 1px 0 $transparent-black-05;
+
+      &.active {
+        i {
+          &:before {
+            content: "\f005";
+          }
+        }
+      }
+    }
+
+    &.last {
+      margin-bottom: 0;
+    }
+
+    div {
+      text-shadow: 1px 1px 0 $transparent-black-05;
+
+      h5 {
+        color: white;
+        margin: 0;
+      }
+
+      p {
+        padding-top: 10px;
+        margin: 0;
+        width: 220px;
+        color: $transparent-white-8;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 16px;
+
+        strong {
+          color: white;
+        }
+      }
+
+      .delivery-time {
+        color: $transparent-white-8;
+        font-size: 11px;
+      }
+
+      .mail-attachment {
+        float: right;
+        color: $transparent-white-8;
+      }
+
+      .mail-label {
+        width: 3px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        @include border-radius(0 4px 4px 0);
+      }
+
+      .mail-actions {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        @include opacity(0);
+        @include transition(all .1s linear);
+
+        a {
+          padding: 5px;
+          color: $transparent-white-8;
+          @include transition(all .1s linear);
+
+          &:hover {
+            color: white;
+          }
+
+          &.delete {
+            &:hover {
+              color: $red;
+            }
+          }
+          &.reply {
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $transparent-black-15;
+      border: 1px solid transparent;
+      .mail-actions {
+        opacity: 1;
+      }
+    }
+    &.active {
+      background-color: $transparent-black-3;
+      border: 1px solid transparent;
+    }
+  }
+}
+
+.mail-content {
+  width: 100%;
+  height: 100%;
+
+  .quick-navigation {
+    text-align: center;
+    background-color: $transparent-white-15;
+    margin-bottom: 20px;
+    @include border-radius(4px);
+    @include box-shadow(0 3px 0 $transparent-black-05);
+    border: 1px solid $transparent-white-1;
+
+    h3 {
+      display: inline-block;
+      font-size: 18px;
+      margin: 0;
+      line-height: 50px;
+      color: white;
+    }
+
+    button {
+      padding: 15px 20px;
+      border: 0;
+      background-color: $transparent-white-1;
+      color: $transparent-white-7;
+
+      &.prev {
+        @include border-radius(4px 0 0 4px);
+      }
+
+      &.next {
+        @include border-radius(0 4px 4px 0);
+      }
+
+      &:hover {
+        background-color: $transparent-white-3;
+        color: white;
+      }
+    }
+  }
+
+  .message {
+    overflow: hidden;
+    @include border-radius(4px);
+    @include box-shadow(0 3px 0 $transparent-black-05);
+
+    .header {
+      background-color: $transparent-black-3;
+      padding: 20px;
+
+      h1 {
+        margin: 0 0 10px 0;
+        color: white;
+        font-size: 26px;
+      }
+
+      .message-info {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          color: white;
+          min-width: 20%;
+          margin-right: 20px;
+          background-color: $transparent-black-2;
+          padding: 4px 10px;
+          @include border-radius(4px);
+          font-size: 11px;
+          margin-bottom: 5px;
+
+          em {
+            @include opacity(.8);
+          }
+        }
+      }
+
+      .actions {
+        margin: 20px -20px -20px -20px;
+        padding: 10px 20px;
+        background-color: $transparent-black-3;
+
+       .btn {
+          background-color: $transparent-white-15;
+          @include box-shadow(0 3px 0 $transparent-black-05);
+          border: 1px solid $transparent-white-1;
+          color: $transparent-white-7;
+
+          &:hover {
+            background-color: $transparent-white-3;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .content {
+      padding: 40px 20px 20px 20px;
+      overflow: hidden;
+      background-color: white;
+
+      p {
+        color: $font-color;
+        font-weight: $font-weight-light;
+      }
+
+      .attachments {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        > li {
+          margin-bottom: 5px;
+          em {
+            font-size: $font-size-mini;
+            color: $font-color;
+          }
+
+          .att-actions {
+            font-size: $font-size-base;
+            margin-left: 5px;
+            float: right;
+
+            i {
+              padding: 5px;
+              cursor: pointer;
+
+              &.att-show {
+                &:hover {
+                  color: $cyan;
+                }
+              }
+
+              &.att-forward {
+                &:hover {
+                  color: $red;
+                }
+              }
+
+              &.att-download {
+                &:hover {
+                  color: $green;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      form {
+        text-align: right;
+
+        .note-editor {
+          margin-top: -10px;
+          text-align: left;
+
+          .note-toolbar {
+            @include border-radius(0);
+          }
+
+          .note-editable {
+            border-left: 1px solid $transparent-black-05;
+            border-right: 1px solid $transparent-black-05;
+          }
+        }
+        button {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.horizontal-mail {
+  > .row {
+    > div[class*='col-'] {
+      &:last-child {
+        padding-left: 0;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  .inbox {
+    position: relative;
+    background-color: $transparent-white-15;
+    border: 1px solid $transparent-white-1;
+    border-bottom: 4px solid $transparent-white-8;
+    @include border-radius(0 4px 4px 0);
+    margin-bottom: 20px;
+
+    .table-heading {
+
+      .heading {
+        h1 {
+          color: white;
+          margin: 0;
+        }
+      }
+
+      .ColVis {
+        float: right;
+        margin: 0;
+        margin-left: 15px;
+
+        .ColVis_Button {
+          height: 37px;
+          width: 37px;
+          text-align: center;
+        }
+      }
+
+      .dataTables_filter {
+        label {
+          input {
+            min-height: 36px;
+          }
+        }
+      }
+    }
+
+    .dataTable {
+      &.table-custom {
+        >thead {
+          >tr {
+            >th,
+            >td {
+              color: $transparent-white-6;
+
+              &:after {
+                background-color: $transparent-white-3;
+              }
+
+              &.sortable,
+              &.sorting {
+                &:hover {
+                  color: white;
+
+                  &:after {
+                    background-color: $transparent-white-6;
+                  }
+                }
+              }
+
+              &.sort-asc,
+              &.sort-desc,
+              &.sort-asc:hover,
+              &.sort-desc:hover,
+              &.sorting_asc,
+              &.sorting_desc,
+              &.sorting_asc:hover,
+              &.sorting_desc:hover {
+                color: white;
+
+                &:after {
+                  background-color: white;
+                }
+              }
+
+              &.controls {
+                width: 100px!important;
+
+                &:first-child {
+                  width: 50px!important;
+                }
+              }
+            }
+          }
+        }
+        >tbody {
+
+          tr {
+            cursor: pointer;
+
+            td,
+            th {
+              font-weight: $font-weight-normal;
+              color: white;
+              border-top-color: $transparent-white-2;
+
+              &:first-child {
+                position: relative;
+
+                .mail-label {
+                  position: absolute;
+                  width: 5px;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                }
+              }
+
+              .checkbox {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+                margin-left: 5px;
+                position: static;
+              }
+
+              .mail-favourite {
+                color: white;
+                text-shadow: 1px 1px 0 $transparent-black-05;
+                font-size: 14px;
+                position: relative;
+                top: 1px;
+
+                &.active {
+                  i {
+                    &:before {
+                      content: "\f005";
+                    }
+                  }
+                }
+              }
+
+              .mail-actions {
+                @include opacity(0);
+                @include transition(all .1s linear);
+
+                a {
+                  padding: 5px 10px;
+                  color: white;
+                  font-size: 14px;
+                  line-height: 14px;
+                  @include transition(all .1s linear);
+
+                  &:hover {
+                    color: white;
+                  }
+
+                  &.delete {
+                    &:hover {
+                      color: $red;
+                    }
+                  }
+                  &.reply {
+                    &:hover {
+                      color: $green;
+                    }
+                  }
+                }
+              }
+
+            }
+
+            &:hover {
+              td,
+              th {
+                .mail-actions {
+                  @include opacity(1);
+                }
+              }
+            }
+
+            &.odd,
+            &.even {
+              td,
+              th {
+                &.sorting_1 {
+                  padding-left: 5px;
+                  position: relative;
+                  z-index: 9;
+
+                  &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    right: 8px;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    background-color: $transparent-black-2;
+                    z-index: -1;
+                  }
+                }
+              }
+            }
+
+            &:first-child {
+              td,
+              th {
+                border-top: 0;
+              }
+            }
+
+            &.row_selected {
+              td,
+              th {
+                background-color: $transparent-black-1;
+              }
+            }
+
+            &.unread {
+              td,
+              th {
+                font-weight: $font-weight-bold;
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .mail-content {
+    padding-left: 15px;
+  }
+}

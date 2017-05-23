@@ -1,0 +1,446 @@
+/*********************************************/
+/************* LOGIN & LOCK PAGE *************/
+/*********************************************/
+#content.full-page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 45px 0!important;
+  top: -45px;
+  background: url(../images/noise.png) left top repeat, url(../images/dot_pattern.png) left top repeat, url(../images/backgrounds/1.jpg) left top / cover no-repeat;
+  @include box-sizing(content-box);
+
+  .inside-block {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 360px;
+    background-color: $transparent-black-3;
+    height: 100%;
+    @include box-sizing(content-box);
+    padding: 50px;
+    color: white;
+    overflow: auto;
+
+    img {
+      margin-top: 50px;
+    }
+
+    .user-photo {
+      img {
+        margin: 0 0 20px 0;
+        width: 100px;
+        border: 5px solid rgba(0,0,0,.2);
+      }
+    }
+
+    h1 {
+      text-transform: uppercase;
+      font-size: 26px;
+      margin-bottom: 5px;
+
+      strong {
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 40px;
+          height: 5px;
+          background-color: lighten($greensea, 10%);
+          top: -5px;
+          left: 0;
+        }
+      }
+    }
+
+    span.overline {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 40px;
+        height: 5px;
+        background-color: lighten($greensea, 10%);
+        top: -5px;
+        left: 0;
+      }
+    }
+
+    h5 {
+      font-family: $font-roboto-condensed;
+      font-weight: $font-weight-light;
+      margin: 0;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    form {
+      margin-top: 50px;
+      margin-bottom: 40px;
+
+      &.form-unlock {
+        margin-top: 20px;
+      }
+
+      .input-group {
+        margin-bottom: 10px;
+
+        .input-group-addon {
+          background-color: $transparent-black-2;
+          @include border-radius(0 4px 4px 0!important);
+          @include transition(all .1s linear);
+          border: 0;
+
+          i {
+            width: 18px;
+            color: $transparent-white-6;
+
+            &:after {
+              content: "";
+              height: 50%;
+              margin-left: -25px;
+              position: absolute;
+              top: 25%;
+            }
+          }
+        }
+
+        input {
+          background-color: $transparent-black-2!important;
+          border: 0!important;
+          @include border-radius(4px 0 0 4px!important);
+          color: white!important;
+          @include transition(all .1s linear);
+
+          &:focus,
+          &:focus + .input-group-addon {
+            background-color: $transparent-black-3!important;
+            @include box-shadow(none!important);
+          }
+
+          @include placeholder {
+            color: $transparent-white-6;
+          }
+        }
+      }
+
+      section.controls {
+        text-align: left;
+        position: relative;
+
+        .checkbox {
+          padding: 0;
+          display: inline-block;
+          margin: 0!important;
+        }
+
+        a {
+          font-size: 12px;
+          margin-top: 5px;
+          display: inline-block;
+          position: absolute;
+          right: 0;
+          top: 0;
+
+          &:hover {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+
+      section.log-in {
+        margin-top: 20px;
+        border-top: 5px dashed $transparent-black-1;
+
+        .btn {
+          display: inline-block;
+          margin-top: 20px;
+        }
+        span {
+          display: inline-block;
+          vertical-align: bottom;
+          line-height: 36px;
+          margin: 0 10px;
+          font-style: italic;
+          font-family: $font-georgia;
+        }
+      }
+    }
+  }
+}
+
+/****************************************/
+/************* WEATHER PAGE *************/
+/****************************************/
+#content.full-page.weather {
+  .owl-carousel {
+    height: 100%;
+    @include box-sizing(content-box);
+    padding-bottom: 45px;
+
+    .owl-wrapper-outer {
+      height: 100%;
+      @include box-sizing(content-box);
+      padding-bottom: 45px;
+
+      .owl-wrapper {
+        height: 100%;
+        @include box-sizing(content-box);
+        padding-bottom: 45px;
+
+        .owl-item {
+          height: 100%;
+          @include box-sizing(content-box);
+          padding-bottom: 45px;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .owl-controls {
+      text-align: right;
+
+      .owl-pagination {
+        top: 55px;
+        left: auto;
+        right: 380px;
+      }
+
+      .owl-buttons {
+        top: 40%;
+        i {
+          font-size: 120px;
+        }
+
+        .owl-next {
+          right: 380px;
+        }
+      }
+    }
+
+    .slide {
+      position: relative;
+
+      .cover {
+        .pattern {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: url(../images/dot_pattern.png);
+          z-index: 9;
+        }
+        img {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+
+          &.bgwidth {
+            width: 100%;
+          }
+          &.bgheight {
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+      .inside-block {
+        position: fixed;
+        right: 0;
+        top: 45px;
+        z-index: 999;
+        width: 360px;
+        background-color: $transparent-black-5;
+        padding: 30px;
+        padding-bottom: 40px;
+        @include box-sizing(border-box);
+
+        >.row {
+          border-bottom: 1px solid rgba(255,255,255,.3);
+          padding: 15px 0;
+
+          h1 {
+            font-size: 74px;
+            margin: 0;
+          }
+
+          h4 {
+            font-family: $font-roboto;
+            font-size: 16px;
+          }
+
+          &:first-child {
+            h4.this-day {
+              margin-left: -24px;
+            }
+          }
+
+          &:not(:first-child) {
+            h4 {
+              line-height: 45px;
+              font-size: 18px;
+              margin: 0;
+            }
+          }
+
+          &:last-child {
+            border: 0;
+          }
+
+          .temp {
+            font-size: 32px;
+            font-weight: $font-weight-light;
+            margin-left: 20px;
+            display: inline-block;
+            vertical-align: top;
+          }
+        }
+      }
+      .location {
+        position: absolute;
+        z-index: 999;
+        top: 70px;
+        left: 50px;
+        color: white;
+
+        h1,h2,h3 {
+          font-family: $font-roboto;
+          margin: 0;
+        }
+
+        h1 {
+          font-family: $font-roboto-slab;
+          font-size: 60px;
+          font-weight: $font-weight-bold;
+        }
+
+        h2 {
+          font-size: 30px;
+          font-weight: $font-weight-light;
+        }
+
+        h3 {
+          font-weight: $font-weight-light;
+          font-size: 28px;
+          margin-top: 20px;
+        }
+      }
+      .photo-author {
+        position: absolute;
+        z-index: 1000;
+        bottom: 20px;
+        top: 50px;
+        right: 40px;
+        color: $transparent-white-3;
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+.animation-pulseSlow {
+  @include animation-name(pulseSlow);
+  @include animation-duration(30s);
+  @include animation-iteration-count(infinite);
+  @include animation-timing-function(linear);
+}
+
+@include keyframes(pulseSlow) {
+  0% {
+    @include transform(scale(1.1));
+  }
+  50% {
+    @include transform(scale(1));
+  }
+  100% {
+    @include transform(scale(1.1));
+  }
+}
+/**************************************/
+/************* ERROR PAGE *************/
+/**************************************/
+#content.full-page.error {
+
+  .inside-block {
+    width: 500px;
+    position: relative;
+
+    h1.error {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+
+      strong {
+        &:before {
+          top: 2px;
+          left: 0;
+          width: 60px;
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      font-weight: 400;
+
+      &.lead {
+        margin-bottom: 0;
+      }
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+      .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .search {
+    width: 200px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99;
+
+    input {
+      font-family: $font-ubuntu-mono;
+      font-size: 16px;
+      color: white;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid $transparent-white-6;
+      @include transition(all 0.2s linear);
+      -webkit-appearance: none !important;
+      @include border-radius(0);
+      -webkit-font-smoothing: antialiased;
+      padding: 0!important;
+      line-height: 18px;
+      min-height: 26px;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid white;
+        @include box-shadow(none!important);
+      }
+
+      @include placeholder {
+        color: $transparent-white-7;
+      }
+    }
+  }
+}

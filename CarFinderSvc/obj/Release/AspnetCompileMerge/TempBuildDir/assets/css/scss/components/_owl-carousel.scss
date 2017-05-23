@@ -1,0 +1,75 @@
+
+/****************************************/
+/************* OWL CAROUSEL *************/
+/****************************************/
+
+.owl-carousel {
+
+  .owl-item {
+    img {
+      width: 80px;
+      margin: 10px 0 25px 0;
+    }
+    p {
+      margin: 0;
+      @include border-radius(0 0 4px 4px);
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: $font-weight-light;
+      line-height: 42px;
+      color: $transparent-white-8;
+      position: relative;
+      font-style: italic;
+
+      &:before {
+        content: "\f10d";
+        font-family: $font-icons;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-size: 2em;
+        @include opacity(.15);
+      }
+    }
+  }
+
+  .owl-controls {
+    .owl-pagination {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .owl-page {
+      span {
+        width: 6px;
+        height: 6px;
+        background: white;
+        margin: 3px 2px;
+      }
+    }
+    .owl-buttons {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+
+      .owl-prev,
+      .owl-next {
+        position: absolute;
+        background: none;
+      }
+
+      .owl-prev {
+        left: 0;
+      }
+
+      .owl-next {
+        right: 0;
+      }
+    }
+  }
+}
